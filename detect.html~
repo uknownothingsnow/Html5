@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+
+		<!--[if lt IE 9]>
+  			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  		<![endif]-->
+		<script>
+			window.onload=function(){
+
+			};
+			function supports_canvas(){
+				return !!document.createElement('canvas').getContext;
+			}
+			function supports_canvas_text(){
+				if(!supports_canvas()){return false;}
+				var dummy_canvas = document.createElement('canvas');
+				var context = dummy_canvas.getContext('2d');
+				return typeof context.fillText == 'function';
+			}
+			function supports_video(){
+				return !!document.createElement('video').canPlayType;
+			}
+			function supports_h264_baseline_video() {
+  				if (!supports_video()) { return false; }
+ 			 	var v = document.createElement("video");
+ 				return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+			}
+			function supports_ogg_theora_video() {
+  				if (!supports_video()) { return false; }
+  				var v = document.createElement("video");
+  				return v.canPlayType('video/ogg; codecs="theora, vorbis"');
+			}
+			function supports_webm_video() {
+  				if (!supports_video()) { return false; }
+				var v = document.createElement("video");
+  				return v.canPlayType('video/webm; codecs="vp8, vorbis"');
+			}
+			function supports_local_storage(){
+				try{
+					return 'localStorage' in window && window['localStorage'] !== null;
+					}catch(e){
+					return false;
+				}
+			}
+			function supports_web_workers(){
+				return !!window.Worker;
+			}
+			function supports_offline(){
+				return !!window.applicationCache;
+			}
+			function supports_geolocation(){
+				return !!navigator.geolocation;
+			}
+			function supports_microdata_api(){
+				return !!document.getItems;
+			}		
+			function supports_history_api(){
+				return !!window.history &&window.history.pushState;
+			}
+		</script>
+	</head>
+	<body>
+
+		<header>
+		<h1>My Weblog</h1>
+  		<p class="tagline">A lot of effort went into making this effortless.</p>
+		</header>
+		<time datetime="2009-10-22" pubdate>October 22, 2009</time>
+	</body>
+</html>

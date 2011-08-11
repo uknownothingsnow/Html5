@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+:invalid { 
+  border-color: #e88;
+  -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+  -moz-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+  -o-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+  -ms-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+  box-shadow:0 0 5px rgba(255, 0, 0, .8);
+}
+
+:required {
+  border-color: #88a;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+  -ms-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+  box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+}
+
+form {
+  width:300px;
+  margin: 20px auto;
+}
+
+input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border:1px solid #ccc;
+  font-size:20px;
+  width:300px;
+  min-height:30px;
+  display:block;
+  margin-bottom:15px;
+  margin-top:5px;
+  outline: none;
+
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -o-border-radius:5px;
+  -ms-border-radius:5px;
+  border-radius:5px;
+}
+
+input[type=submit] {
+  background:none;
+  padding:10px;
+}
+			
+		</style>
+	</head>
+	<body>
+		<form>
+			<datalist id="list">
+			<option value="1">male</option>
+			<option value="2">female</option>
+			</datalist>
+			<label> Name:</label>
+			<input type="text" id="name" placeholder="bruce" autofocus required>
+			<label> Email:</label>
+			<input type="email" id="email" required>
+			<label>Repeat email</label>
+			<input type="email" id="repeat_email" oninput="check(this)" required>
+			<label>Gender</label>
+			<input type="select" id="gender" list="list">
+			<label>Date</label>
+			<input type="date" id="date">
+			<input type="datetime">
+			<input type="month">
+			<input type="week">
+			<input type="time">
+			<input type="search">
+			<input type="color">
+			<input type="number" min="0" max="20" step="2" value="6">
+			<span>range number</span>	<input type="range" min="0" max="20" step="2" value="6"><span></span>
+			<input type="submit" value="submit">
+		</form>
+		<script>
+			function check(input){
+				if(input.value != document.getValueById("email").value){
+					input.setCustomValidity('email not match');
+					}else{
+					input.setCustomeValidity('');
+				}
+			}
+		</script>
+	</body>
+</html>
